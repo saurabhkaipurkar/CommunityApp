@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Original Material Design Colors (Dark variants) -->
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FFFFFFFF</color> <!-- Inverted for dark theme -->
+    <color name="white">#FF000000</color> <!-- Inverted for dark theme -->
+    <color name="background_color">#FF121212</color>
+    <color name="text_color">#FFE0E0E0</color>
+    <color name="stroke_color">#FF5E5E5E</color>
+    <color name="red">#FFEF5350</color> <!-- Softer red for dark theme -->
+    <color name="status_bar">#000000</color>
+
+    <!-- Primary Colors (Adjusted for dark theme) -->
+    <color name="primary_color">#FF8B85FF</color> <!-- Lighter variant -->
+    <color name="primary_dark">#FF6C63FF</color>
+    <color name="primary_light">#FFAAA5FF</color>
+
+    <!-- Secondary Colors (Adjusted for dark theme) -->
+    <color name="secondary_color">#FFFF8AB1</color> <!-- Lighter variant -->
+    <color name="secondary_light">#FFFFC4D6</color>
+
+    <!-- Background Colors -->
+    <color name="input_background">#FF2D2D2D</color>
+    <color name="divider_color">#FF3A3A3A</color>
+
+    <!-- Text Colors -->
+    <color name="primary_text">#FFE0E0E0</color>
+    <color name="secondary_text">#FFA0A0A0</color>
+    <color name="transparent">#00000000</color>
+
+    <!-- Status Colors (Adjusted for dark theme) -->
+    <color name="success">#FF66BB6A</color>
+    <color name="error">#FFEF5350</color>
+    <color name="warning">#FFFFA726</color>
+
+    <!-- Gradient Colors (Adjusted for dark theme) -->
+    <color name="gradient_start">#FF8B85FF</color>
+    <color name="gradient_end">#FFFF8AB1</color>
+    <color name="gradient_secondary_start">#FFFF8AB1</color>
+    <color name="gradient_secondary_end">#FFFFC4D6</color>
+
+    <!-- Additional Primary Variants (Dark theme) -->
+    <color name="primary_50">#FF1A1A2E</color>
+    <color name="primary_100">#FF2D2D4A</color>
+    <color name="primary_200">#FF404066</color>
+    <color name="primary_300">#FF5A5A85</color>
+    <color name="primary_400">#FF7570A3</color>
+    <color name="primary_600">#FF9B94FF</color>
+    <color name="primary_800">#FFB8B3FF</color>
+    <color name="primary_900">#FFD4D1FF</color>
+
+    <!-- Additional Secondary Variants (Dark theme) -->
+    <color name="secondary_50">#FF2E1A1F</color>
+    <color name="secondary_100">#FF4A2D35</color>
+    <color name="secondary_200">#FF66404B</color>
+    <color name="secondary_300">#FF855A66</color>
+    <color name="secondary_400">#FFA37080</color>
+    <color name="secondary_600">#FFFF8AB1</color>
+    <color name="secondary_700">#FFFFABC9</color>
+    <color name="secondary_800">#FFFFD6E3</color>
+    <color name="secondary_900">#FFFFEBF1</color>
+
+    <!-- Tertiary Colors (Dark theme) -->
+    <color name="tertiary_color">#FF7ED9D2</color>
+    <color name="tertiary_light">#FF95E1D3</color>
+    <color name="tertiary_dark">#FF4ECDC4</color>
+
+    <!-- Accent Colors (Dark theme) -->
+    <color name="accent_orange">#FFFFC947</color>
+    <color name="accent_yellow">#FFFFE66D</color>
+    <color name="accent_green">#FFAAE6D8</color>
+    <color name="accent_blue">#FFA3D5F0</color>
+    <color name="accent_purple">#FFE6B3E6</color>
+
+    <!-- Neutral Gray Scale (Dark theme) -->
+    <color name="gray_50">#FF111827</color>
+    <color name="gray_100">#FF1F2937</color>
+    <color name="gray_200">#FF374151</color>
+    <color name="gray_300">#FF4B5563</color>
+    <color name="gray_400">#FF6B7280</color>
+    <color name="gray_500">#FF9CA3AF</color>
+    <color name="gray_600">#FFD1D5DB</color>
+    <color name="gray_700">#FFE5E7EB</color>
+    <color name="gray_800">#FFF3F4F6</color>
+    <color name="gray_900">#FFF9FAFB</color>
+
+    <!-- Surface Colors (Dark theme) -->
+    <color name="surface">#FF1E1E1E</color>
+    <color name="surface_variant">#FF2D2D2D</color>
+    <color name="surface_container">#FF3A3A3A</color>
+    <color name="surface_container_high">#FF474747</color>
+    <color name="surface_container_highest">#FF545454</color>
+
+    <!-- Additional Status Colors (Dark theme) -->
+    <color name="info">#FF64B5F6</color>
+    <color name="info_light">#FFB3D9FF</color>
+    <color name="success_light">#FFC8E6C9</color>
+    <color name="warning_light">#FFFFD54F</color>
+    <color name="error_light">#FFFFAB91</color>
+
+    <!-- Dark Theme Colors (These remain the same as they are already dark) -->
+    <color name="dark_background">#FF121212</color>
+    <color name="dark_surface">#FF1E1E1E</color>
+    <color name="dark_surface_variant">#FF2D2D2D</color>
+    <color name="dark_primary_text">#FFE0E0E0</color>
+    <color name="dark_secondary_text">#FFA0A0A0</color>
+
+    <!-- Additional Gradient Combinations (Dark theme) -->
+    <color name="gradient_tertiary_start">#FF7ED9D2</color>
+    <color name="gradient_tertiary_end">#FFAAE6D8</color>
+    <color name="gradient_sunset_start">#FFFFC947</color>
+    <color name="gradient_sunset_end">#FFFF8AB1</color>
+    <color name="gradient_ocean_start">#FFA3D5F0</color>
+    <color name="gradient_ocean_end">#FF7ED9D2</color>
+    <color name="gradient_forest_start">#FFAAE6D8</color>
+    <color name="gradient_forest_end">#FF66BB6A</color>
+
+    <!-- Semantic Colors (Dark theme) -->
+    <color name="online">#FF34D399</color>
+    <color name="offline">#FF9CA3AF</color>
+    <color name="busy">#FFEF4444</color>
+    <color name="away">#FFFBBF24</color>
+
+    <!-- Button State Colors (Dark theme) -->
+    <color name="button_pressed">#FF8B85FF</color>
+    <color name="button_disabled">#FF374151</color>
+    <color name="button_disabled_text">#FF6B7280</color>
+
+    <!-- Border Colors (Dark theme) -->
+    <color name="border_light">#FF374151</color>
+    <color name="border_medium">#FF4B5563</color>
+    <color name="border_dark">#FF9CA3AF</color>
+
+    <!-- Overlay Colors (Dark theme) -->
+    <color name="overlay_light">#80FFFFFF</color>
+    <color name="overlay_medium">#B3FFFFFF</color>
+    <color name="overlay_dark">#CCFFFFFF</color>
+
+    <color name="input_text">#FFFFFF</color>
+</resources>

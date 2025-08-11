@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Pure white background -->
+<!--    <corners android:radius="12dp" /> &lt;!&ndash; Soft rounded corners &ndash;&gt;-->
+<!--    <stroke android:color="#CCCCCC" android:width="1dp"/> &lt;!&ndash; Light border for subtle separation &ndash;&gt;-->
+    <solid android:color="@color/background_color" />
+
+    <corners android:radius="10dp" />
+    <!-- Pure white background -->
+    <stroke android:color="@color/stroke_color" android:width="1dp"/> <!-- Light border for subtle separation -->
+</shape>

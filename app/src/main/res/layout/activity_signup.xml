@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:scrollbars="none">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/futuristic_background">
+        <!-- Animated Background Orbs -->
+        <View
+            android:id="@+id/orb1"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="@drawable/gradient_orb_primary"
+            android:alpha="0.3"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="-20dp" />
+
+        <View
+            android:id="@+id/orb2"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:background="@drawable/gradient_orb_secondary"
+            android:alpha="0.2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="150dp"
+            android:layout_marginStart="-50dp" />
+
+        <View
+            android:id="@+id/orb3"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="@drawable/gradient_orb_accent"
+            android:alpha="0.25"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="100dp"
+            android:layout_marginEnd="30dp" />
+
+        <!-- Floating Particles -->
+        <View
+            android:id="@+id/particle1"
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:background="@drawable/glow_particle"
+            android:alpha="0.7"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="200dp"
+            android:layout_marginStart="80dp" />
+
+        <View
+            android:id="@+id/particle2"
+            android:layout_width="6dp"
+            android:layout_height="6dp"
+            android:background="@drawable/glow_particle"
+            android:alpha="0.5"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="300dp"
+            android:layout_marginEnd="120dp" />
+
+        <View
+            android:id="@+id/particle3"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:background="@drawable/glow_particle"
+            android:alpha="0.6"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginBottom="200dp"
+            android:layout_marginStart="150dp" />
+
+        <!-- Glassmorphism Main Container -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/glassCard"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="28dp"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <!-- Glass Effect Background -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/glass_background" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="28dp">
+
+                <!-- Holographic Logo Container -->
+                <FrameLayout
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="24dp">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/holographic_circle" />
+
+                    <ImageView
+                        android:id="@+id/logoIcon"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_logo_futuristic"
+                        app:tint="@color/neon_blue" />
+
+                </FrameLayout>
+
+                <!-- Neon Text Headers -->
+                <TextView
+                    android:id="@+id/signupText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Create Account"
+                    android:layout_gravity="center"
+                    android:textSize="32sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/neon_text"
+                    android:fontFamily="@font/orbitron_regular"
+                    android:letterSpacing="0.05"
+                    android:shadowColor="@color/neon_glow"
+                    android:shadowDx="0"
+                    android:shadowDy="0"
+                    android:shadowRadius="8" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Enter the digital frontier"
+                    android:textSize="16sp"
+                    android:textColor="@color/glass_text"
+                    android:alpha="0.8"
+                    android:layout_marginBottom="32dp"
+                    android:fontFamily="@font/roboto_light" />
+
+                <!-- Futuristic Input Fields -->
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:hint="Neural ID Name"
+                    app:startIconDrawable="@drawable/ic_user_hologram"
+                    app:startIconTint="@color/neon_cyan"
+                    app:boxBackgroundColor="@color/input_glass_bg"
+                    app:boxCornerRadiusTopStart="16dp"
+                    app:boxCornerRadiusTopEnd="16dp"
+                    app:boxCornerRadiusBottomStart="16dp"
+                    app:boxCornerRadiusBottomEnd="16dp"
+                    app:hintTextColor="@color/input_text"
+                    app:boxStrokeColor="@color/assistant_stroke_color"
+                    app:boxStrokeWidth="1dp"
+                    app:boxStrokeWidthFocused="2dp"
+                    app:hintAnimationEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/input_text"
+                        android:inputType="textPersonName"
+                        android:imeOptions="actionNext"
+                        android:fontFamily="@font/roboto_bold"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:hint="Digital Address"
+                    app:startIconDrawable="@drawable/ic_email_hologram"
+                    app:startIconTint="@color/neon_cyan"
+                    app:boxBackgroundColor="@color/input_glass_bg"
+                    app:boxCornerRadiusTopStart="16dp"
+                    app:boxCornerRadiusTopEnd="16dp"
+                    app:boxCornerRadiusBottomStart="16dp"
+                    app:boxCornerRadiusBottomEnd="16dp"
+                    app:hintTextColor="@color/input_text"
+                    app:boxStrokeColor="@color/assistant_stroke_color"
+                    app:boxStrokeWidth="1dp"
+                    app:boxStrokeWidthFocused="2dp"
+                    app:hintAnimationEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/input_text"
+                        android:inputType="textEmailAddress"
+                        android:imeOptions="actionNext"
+                        android:fontFamily="@font/roboto_bold"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:hint="Phone Number"
+                    app:startIconDrawable="@drawable/ic_phone_hologram"
+                    app:startIconTint="@color/neon_cyan"
+                    app:boxBackgroundColor="@color/input_glass_bg"
+                    app:boxCornerRadiusTopStart="16dp"
+                    app:boxCornerRadiusTopEnd="16dp"
+                    app:boxCornerRadiusBottomStart="16dp"
+                    app:boxCornerRadiusBottomEnd="16dp"
+                    app:hintTextColor="@color/input_text"
+                    app:boxStrokeColor="@color/assistant_stroke_color"
+                    app:boxStrokeWidth="1dp"
+                    app:boxStrokeWidthFocused="2dp"
+                    app:hintAnimationEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/input_text"
+                        android:inputType="phone"
+                        android:imeOptions="actionNext"
+                        android:fontFamily="@font/roboto_bold"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:hint="Password"
+                    app:startIconDrawable="@drawable/ic_lock_hologram"
+                    app:startIconTint="@color/neon_cyan"
+                    app:endIconMode="password_toggle"
+                    app:endIconTint="@color/neon_cyan"
+                    app:boxBackgroundColor="@color/input_glass_bg"
+                    app:boxCornerRadiusTopStart="16dp"
+                    app:boxCornerRadiusTopEnd="16dp"
+                    app:boxCornerRadiusBottomStart="16dp"
+                    app:boxCornerRadiusBottomEnd="16dp"
+                    app:hintTextColor="@color/input_text"
+                    app:boxStrokeColor="@color/assistant_stroke_color"
+                    app:boxStrokeWidth="1dp"
+                    app:boxStrokeWidthFocused="2dp"
+                    app:boxStrokeErrorColor="@color/neon_red"
+                    app:hintAnimationEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/input_text"
+                        android:inputType="textPassword"
+                        android:imeOptions="actionNext"
+                        android:fontFamily="@font/roboto_bold"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="32dp"
+                    android:hint="Verify Password"
+                    app:startIconDrawable="@drawable/ic_lock_hologram"
+                    app:startIconTint="@color/neon_cyan"
+                    app:endIconMode="password_toggle"
+                    app:endIconTint="@color/neon_cyan"
+                    app:boxBackgroundColor="@color/input_glass_bg"
+                    app:boxCornerRadiusTopStart="16dp"
+                    app:boxCornerRadiusTopEnd="16dp"
+                    app:boxCornerRadiusBottomStart="16dp"
+                    app:boxCornerRadiusBottomEnd="16dp"
+                    app:hintTextColor="@color/input_text"
+                    app:boxStrokeColor="@color/assistant_stroke_color"
+                    app:boxStrokeWidth="1dp"
+                    app:boxStrokeWidthFocused="2dp"
+                    app:boxStrokeErrorColor="@color/neon_red"
+                    app:hintAnimationEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etConfirmPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/input_text"
+                        android:inputType="textPassword"
+                        android:imeOptions="actionDone"
+                        android:fontFamily="@font/roboto_bold"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Holographic Sign Up Button -->
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.Material3.Button"
+                    android:id="@+id/btnSignUp"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:layout_marginBottom="38dp"
+                    android:text="INITIALIZE ACCOUNT"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.1"
+                    app:cornerRadius="32dp"
+                    android:elevation="0dp"
+                    android:backgroundTint="@android:color/transparent"
+                    android:background="@drawable/holographic_button"
+                    android:textColor="@color/button_text_neon"
+                    android:fontFamily="@font/orbitron_medium" />
+
+                <!-- Login Link with Glass Effect -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:background="@drawable/subtle_glass_bg"
+                    android:padding="16dp"
+                    android:layout_marginTop="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Already in the system? "
+                        android:textColor="@color/glass_text"
+                        android:textSize="14sp"
+                        android:alpha="0.7"
+                        android:fontFamily="@font/roboto_light" />
+
+                    <TextView
+                        android:id="@+id/tvLogin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:text="ACCESS"
+                        android:gravity="center"
+                        android:textColor="@color/neon_accent"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.05"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:background="@drawable/ripple_neon"
+                        android:padding="12dp"
+                        android:fontFamily="@font/orbitron_medium" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Bottom Gradient Overlay -->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:background="@drawable/bottom_gradient"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

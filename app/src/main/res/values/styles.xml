@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="FuturisticTitle" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:fontFamily">@font/orbitron_medium</item>
+        <item name="android:letterSpacing">0.1</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:shadowColor">@color/neon_glow</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">6</item>
+    </style>
+
+    <style name="HolographicActiveIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/neon_cyan</item>
+        <item name="android:alpha">0.3</item>
+    </style>
+
+</resources>

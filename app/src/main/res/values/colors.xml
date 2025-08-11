@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Original Material Design Colors -->
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="background_color">#F5F5F5</color>
+    <color name="text_color">#000000</color>
+    <color name="stroke_color">#7E7E7E</color>
+    <color name="red">#FF0000</color>
+    <color name="status_bar">#000000</color>
+
+    <!-- Primary Colors -->
+    <color name="primary_color">#6C63FF</color>
+    <color name="primary_dark">#5A52E5</color>
+    <color name="primary_light">#8B85FF</color>
+
+    <!-- Secondary Colors -->
+    <color name="secondary_color">#FF6B9D</color>
+    <color name="secondary_light">#FFB3D1</color>
+
+    <!-- Background Colors -->
+    <color name="input_background">#F5F5F5</color>
+    <color name="divider_color">#E2E8F0</color>
+
+    <!-- Text Colors -->
+    <color name="primary_text">#2D3748</color>
+    <color name="secondary_text">#718096</color>
+    <color name="transparent">#00000000</color>
+
+    <!-- Status Colors -->
+    <color name="success">#48BB78</color>
+    <color name="error">#F56565</color>
+    <color name="warning">#ED8936</color>
+
+    <!-- Gradient Colors -->
+    <color name="gradient_start">#6C63FF</color>
+    <color name="gradient_end">#FF6B9D</color>
+    <color name="gradient_secondary_start">#FF6B9D</color>
+    <color name="gradient_secondary_end">#FFB3D1</color>
+
+    <!-- Additional Primary Variants -->
+    <color name="primary_50">#F3F2FF</color>
+    <color name="primary_100">#E8E6FF</color>
+    <color name="primary_200">#D4D1FF</color>
+    <color name="primary_300">#B8B3FF</color>
+    <color name="primary_400">#9B94FF</color>
+    <color name="primary_600">#5751CC</color>
+    <color name="primary_800">#4842A3</color>
+    <color name="primary_900">#3A3485</color>
+
+    <!-- Additional Secondary Variants -->
+    <color name="secondary_50">#FFF5F8</color>
+    <color name="secondary_100">#FFEBF1</color>
+    <color name="secondary_200">#FFD6E3</color>
+    <color name="secondary_300">#FFABC9</color>
+    <color name="secondary_400">#FF8AB1</color>
+    <color name="secondary_600">#E55A8A</color>
+    <color name="secondary_700">#CC4A77</color>
+    <color name="secondary_800">#B33B64</color>
+    <color name="secondary_900">#9A2C51</color>
+
+    <!-- Tertiary Colors -->
+    <color name="tertiary_color">#4ECDC4</color>
+    <color name="tertiary_light">#7ED9D2</color>
+    <color name="tertiary_dark">#3AAA9E</color>
+
+    <!-- Accent Colors -->
+    <color name="accent_orange">#FFB347</color>
+    <color name="accent_yellow">#FFE66D</color>
+    <color name="accent_green">#95E1D3</color>
+    <color name="accent_blue">#87CEEB</color>
+    <color name="accent_purple">#DDA0DD</color>
+
+    <!-- Neutral Gray Scale -->
+    <color name="gray_50">#F9FAFB</color>
+    <color name="gray_100">#F3F4F6</color>
+    <color name="gray_200">#E5E7EB</color>
+    <color name="gray_300">#D1D5DB</color>
+    <color name="gray_400">#9CA3AF</color>
+    <color name="gray_500">#6B7280</color>
+    <color name="gray_600">#4B5563</color>
+    <color name="gray_700">#374151</color>
+    <color name="gray_800">#1F2937</color>
+    <color name="gray_900">#111827</color>
+
+    <!-- Surface Colors -->
+    <color name="surface">#FFFFFF</color>
+    <color name="surface_variant">#F8F9FA</color>
+    <color name="surface_container">#F1F3F4</color>
+    <color name="surface_container_high">#E8EAED</color>
+    <color name="surface_container_highest">#E1E3E6</color>
+
+    <!-- Additional Status Colors -->
+    <color name="info">#4299E1</color>
+    <color name="info_light">#90CDF4</color>
+    <color name="success_light">#9AE6B4</color>
+    <color name="warning_light">#F6AD55</color>
+    <color name="error_light">#FEB2B2</color>
+
+    <!-- Dark Theme Colors -->
+    <color name="dark_background">#121212</color>
+    <color name="dark_surface">#1E1E1E</color>
+    <color name="dark_surface_variant">#2D2D2D</color>
+    <color name="dark_primary_text">#E0E0E0</color>
+    <color name="dark_secondary_text">#A0A0A0</color>
+
+    <!-- Additional Gradient Combinations -->
+    <color name="gradient_tertiary_start">#4ECDC4</color>
+    <color name="gradient_tertiary_end">#95E1D3</color>
+    <color name="gradient_sunset_start">#FFB347</color>
+    <color name="gradient_sunset_end">#FF6B9D</color>
+    <color name="gradient_ocean_start">#87CEEB</color>
+    <color name="gradient_ocean_end">#4ECDC4</color>
+    <color name="gradient_forest_start">#95E1D3</color>
+    <color name="gradient_forest_end">#48BB78</color>
+
+    <!-- Semantic Colors -->
+    <color name="online">#10B981</color>
+    <color name="offline">#6B7280</color>
+    <color name="busy">#EF4444</color>
+    <color name="away">#F59E0B</color>
+
+    <!-- Button State Colors -->
+    <color name="button_pressed">#5A52E5</color>
+    <color name="button_disabled">#E5E7EB</color>
+    <color name="button_disabled_text">#9CA3AF</color>
+
+    <!-- Border Colors -->
+    <color name="border_light">#F3F4F6</color>
+    <color name="border_medium">#D1D5DB</color>
+    <color name="border_dark">#6B7280</color>
+
+    <!-- Overlay Colors -->
+    <color name="overlay_light">#80000000</color>
+    <color name="overlay_medium">#B3000000</color>
+    <color name="overlay_dark">#CC000000</color>
+
+        <!-- Neon Colors -->
+        <color name="neon_blue">#00BFFF</color>
+        <color name="neon_cyan">#00FFFF</color>
+        <color name="neon_purple">#8A2BE2</color>
+        <color name="neon_pink">#FF1493</color>
+        <color name="neon_green">#39FF14</color>
+        <color name="neon_red">#FF073A</color>
+        <color name="neon_accent">#00D4FF</color>
+
+        <!-- Glass Effect Colors -->
+        <color name="glass_white">#1AFFFFFF</color>
+        <color name="glass_border">#30FFFFFF</color>
+        <color name="glass_text">#E0FFFFFF</color>
+        <color name="glass_bg">#0D1117</color>
+
+        <!-- Background Colors -->
+        <color name="dark_space">#0A0A0F</color>
+        <color name="deep_purple">#1A0033</color>
+        <color name="cosmic_blue">#000B1A</color>
+
+        <!-- Input Colors -->
+        <color name="input_glass_bg">#15000000</color>
+        <color name="input_text">#FFFFFF</color>
+        <color name="neon_hint">#80FFFFFF</color>
+        <color name="neon_border">#4000FFFF</color>
+        <color name="neon_glow">#4000BFFF</color>
+        <color name="neon_text">#FFFFFF</color>
+
+        <!-- Button Colors -->
+        <color name="button_text_neon">#FFFFFF</color>
+        <color name="hologram_start">#4000FFFF</color>
+        <color name="hologram_end">#4000BFFF</color>
+</resources>

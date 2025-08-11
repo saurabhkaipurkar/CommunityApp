@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">CommunityApp</string>
+    <string name="serverClientId">1080209105036-hq1sgl4iqhtb1a5cpasvr2i2vq5vf47j.apps.googleusercontent.com</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+</resources>
