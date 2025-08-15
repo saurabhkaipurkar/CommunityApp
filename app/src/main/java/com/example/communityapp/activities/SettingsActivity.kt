@@ -32,7 +32,6 @@ class SettingsActivity : AppCompatActivity() {
         binding.appLayout.setOnClickListener {
             ClientInfo.clearLogin(this)
             startActivity(Intent(this, LoginActivity::class.java))
-
         }
     }
 }

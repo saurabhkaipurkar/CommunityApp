@@ -108,15 +108,21 @@
                 android:layout_height="wrap_content"
                 android:text="Your Name"
                 android:textStyle="bold"
+                android:textSize="16sp"
                 android:textColor="@color/text_color"
                 android:layout_marginTop="8dp" />
 
             <!-- Bio -->
             <TextView
-                android:id="@+id/textBio"
+                android:id="@+id/textEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Your bio here"
+                android:text=""
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="16sp"
                 android:textColor="@color/text_color"
                 android:layout_marginBottom="8dp" />
 
@@ -143,13 +149,11 @@
                     android:text="Share profile" />
 
             </LinearLayout>
-
-            <!-- Posts Grid -->
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerUserPosts"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:numColumns="3" />
         </LinearLayout>
+    <!-- Posts Grid -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerUserPosts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"/>
 </LinearLayout>

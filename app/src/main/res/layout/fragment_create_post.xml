@@ -1,98 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:orientation="vertical"
+    android:background="@color/background_color"
+    android:padding="16dp">
 
-    <LinearLayout
+    <!-- Top Header with modern styling -->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/topAppBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@color/background_color"
-        android:padding="8dp">
+        android:text="Create Post"
+        android:textColor="@color/text_color"
+        android:textSize="24sp"
+        android:fontFamily="@font/orbitron_medium"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- Top Header-->
-        <LinearLayout
+    <!-- Post Content Input with modern Material 3 styling -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/postInputLayout"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="What's on your mind?"
+        android:textColorHint="@color/text_color"
+        app:boxCornerRadiusTopStart="12dp"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        app:boxCornerRadiusBottomEnd="12dp"
+        app:boxStrokeWidth="2dp"
+        android:layout_marginTop="24dp"
+        app:boxStrokeColor="@color/assistant_stroke_color"
+        app:layout_constraintTop_toBottomOf="@+id/topAppBar"
+        app:layout_constraintStart_toStartOf="@+id/topAppBar"
+        app:layout_constraintEnd_toEndOf="@+id/topAppBar">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/postEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginBottom="24dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="New post"
-                android:textColor="@color/text_color"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-        </LinearLayout>
-
-        <!-- Post Content Input -->
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            app:boxStrokeWidth="1dp"
-            app:boxCornerRadiusTopStart="16dp"
-            app:boxCornerRadiusTopEnd="16dp"
-            app:boxStrokeColor="@color/assistant_stroke_color"
-            app:boxBackgroundColor="@color/background_color">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/postEditText"
-                android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:gravity="top|start"
-                android:hint="What's on your mind?"
-                android:textColor="@color/text_color"
-                android:textSize="16sp"
-                android:inputType="textMultiLine|textCapSentences"
-                android:maxLines="6"/>
+            android:minHeight="120dp"
+            android:gravity="top|start"
+            android:textColor="@color/text_color"
+            android:textSize="16sp"
+            android:inputType="textMultiLine|textCapSentences"
+            android:maxLines="8"
+            android:scrollbars="vertical" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Gallery Button -->
+        <!-- Action Buttons Row -->
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:id="@+id/actionButtonsLayout"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:orientation="horizontal"
-            android:layout_gravity="end">
+            app:layout_constraintTop_toBottomOf="@id/postInputLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
+            <!-- Gallery Button with modern icon style -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/galleryButton"
+                style="@style/Widget.Material3.Button.TonalButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
                 android:text="Add Photos"
+                android:textSize="14sp"
+                app:cornerRadius="20dp"
+                app:icon="@drawable/ic_placeholder"
+                app:iconGravity="textStart"
+                app:iconSize="20dp" />
+
+            <!-- Post Button with emphasis -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/submitButton"
+                style="@style/Widget.Material3.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:text="Post"
                 android:textColor="@color/white"
                 android:textSize="16sp"
-                app:cornerRadius="24dp"
-                android:elevation="8dp"
-                app:iconGravity="textStart"
-                app:iconSize="18dp"
-                app:iconTint="@color/white" />
+                android:textStyle="bold"
+                android:minWidth="120dp"
+                app:cornerRadius="20dp"
+                android:elevation="4dp" />
+
         </LinearLayout>
+
+        <!-- Bottom spacing for better visual balance -->
+        <View
+            android:id="@+id/seperator_only"
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            app:layout_constraintTop_toBottomOf="@id/actionButtonsLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <ImageView
             android:id="@+id/selectedImages"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_placeholder"/>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/submitButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_gravity="center"
-            android:elevation="8dp"
-            android:text="Post"
-            android:textColor="@color/white"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:cornerRadius="24dp" />
-    </LinearLayout>
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_placeholder"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/seperator_only"
+            android:visibility="gone"/>
 
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

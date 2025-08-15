@@ -29,6 +29,9 @@
         android:theme="@style/Theme.CommunityApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".activities.FullScreenImageActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.SettingsActivity"
             android:exported="false" />
         <activity
@@ -51,7 +54,8 @@
         </activity>
         <activity
             android:name=".activities.MainActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan"/>
 
         <provider
             android:name="androidx.core.content.FileProvider"

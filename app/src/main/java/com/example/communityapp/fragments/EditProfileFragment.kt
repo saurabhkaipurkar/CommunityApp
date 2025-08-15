@@ -4,6 +4,7 @@ import android.graphics.Paint
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
+import android.util.Patterns
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -165,11 +166,12 @@ class EditProfileFragment : Fragment() {
                     requireContext(),
                     binding.districtSpinner,
                     districtResponse.data,
-                    binding.stateSpinner.tag.toString()
-                ) { stateId, districtId ->
-                    binding.districtSpinner.tag = districtId
-                    userProfileViewModel.fetchTalukas(stateId.toInt(), districtId.toInt())
-                }
+                    binding.stateSpinner.tag.toString(),
+                    onDistrictSelected = { stateId, districtId ->
+                        binding.districtSpinner.tag = districtId
+                        userProfileViewModel.fetchTalukas(stateId, districtId)
+                    }
+                )
             }
         }
         userProfileViewModel.talukas.observe(viewLifecycleOwner){ talukaResponse ->
@@ -210,10 +212,7 @@ class EditProfileFragment : Fragment() {
     }
 
     private fun submitData(){
-        if (binding.stateSpinner.tag == null ||
-            binding.districtSpinner.tag == null ||
-            binding.talukaSpinner.tag == null) {
-            Toast.makeText(requireContext(), "Please select state, district, and taluka", Toast.LENGTH_SHORT).show()
+        if (!allFieldValidation()) {
             return
         }
         val dataMap = editUserProfile()
@@ -226,4 +225,59 @@ class EditProfileFragment : Fragment() {
         imageUri?.let { outState.putString("imageUri", it.toString()) }
         imageFile?.let { outState.putString("imageFilePath", it.absolutePath) }
     }
+
+    private fun allFieldValidation(): Boolean {
+        val name = binding.etName.text.toString().trim()
+        val email = binding.enterEmail.text.toString().trim()
+        val phone = binding.etPhone.text.toString().trim()
+        val password = binding.etPassword.text.toString().trim()
+        val address = binding.etAddress.text.toString().trim()
+
+        if (name.isEmpty()) {
+            binding.etName.error = "Name is required"
+            return false
+        }
+        if (email.isEmpty()) {
+            binding.enterEmail.error = "Email is required"
+            return false
+        }
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            binding.enterEmail.error = "Invalid email format"
+            return false
+        }
+        if (phone.isEmpty()) {
+            binding.etPhone.error = "Phone number is required"
+            return false
+        }
+        if (phone.length != 10) { // Example: expecting 10 digits
+            binding.etPhone.error = "Invalid phone number"
+            return false
+        }
+        if (password.isEmpty()) {
+            binding.etPassword.error = "Password is required"
+            return false
+        }
+        if (gender.isEmpty()) {
+            Toast.makeText(requireContext(), "Please select gender", Toast.LENGTH_SHORT).show()
+            return false
+        }
+        if (binding.stateSpinner.tag == null) {
+            Toast.makeText(requireContext(), "Please select state", Toast.LENGTH_SHORT).show()
+            return false
+        }
+        if (binding.districtSpinner.tag == null) {
+            Toast.makeText(requireContext(), "Please select district", Toast.LENGTH_SHORT).show()
+            return false
+        }
+        if (binding.talukaSpinner.tag == null) {
+            Toast.makeText(requireContext(), "Please select taluka", Toast.LENGTH_SHORT).show()
+            return false
+        }
+        if (address.isEmpty()) {
+            binding.etAddress.error = "Address is required"
+            return false
+        }
+        return true
+    }
+
 }

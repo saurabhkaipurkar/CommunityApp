@@ -1,6 +1,7 @@
 package com.example.communityapp.repository
 
 import com.example.communityapp.apiservices.ApiService
+import com.example.communityapp.models.CommentsResponse
 import com.example.communityapp.models.GetPostResponse
 import com.example.communityapp.models.PostComments
 import com.example.communityapp.models.PostLikes
@@ -22,5 +23,10 @@ class PostRepository(private val apiService: ApiService) {
     suspend fun comments(content: Map<String, String>): PostComments {
         return apiService.comments(content)
     }
+
+    suspend fun getComments(postId: Int): CommentsResponse {
+        return apiService.getComments(postId)
+    }
+
 
 }

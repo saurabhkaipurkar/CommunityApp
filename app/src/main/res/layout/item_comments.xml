@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/card_background"
+    android:padding="12dp"
+    android:layout_marginBottom="8dp">
+
+    <!-- Comment Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingBottom="8dp">
+
+        <!-- User Avatar -->
+        <ImageView
+            android:id="@+id/user_avatar"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/circle_background"
+            android:scaleType="centerCrop"
+            android:layout_marginEnd="12dp" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <!-- Username -->
+            <TextView
+                android:id="@+id/username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Username"
+                android:textColor="@color/text_color"
+                android:textSize="14sp"
+                android:fontFamily="@font/poppins_medium" />
+
+            <!-- Timestamp -->
+            <TextView
+                android:id="@+id/timestamp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2 hours ago"
+                android:textColor="@color/text_color"
+                android:textSize="12sp"
+                android:fontFamily="@font/poppins_regular" />
+
+        </LinearLayout>
+
+        <!-- Comment Actions Menu -->
+        <ImageView
+            android:id="@+id/comment_menu"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="4dp"
+            app:tint="@color/text_color" />
+
+    </LinearLayout>
+
+    <!-- Comment Content -->
+    <TextView
+        android:id="@+id/view_comment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="This is a sample comment text that can span multiple lines..."
+        android:textColor="@color/text_color"
+        android:textSize="15sp"
+        android:fontFamily="@font/poppins_regular"
+        android:lineSpacingExtra="2dp"
+        android:paddingBottom="8dp" />
+</LinearLayout>

@@ -54,9 +54,8 @@ class SignupActivity : AppCompatActivity() {
                 Toast.makeText(this, response.message, Toast.LENGTH_SHORT).show()
                 val user = response.data
                 ClientInfo.setLogin(this, true)
-                ClientInfo.saveUserInfo(
+                ClientInfo.signupDetail(
                     this,
-                    id = user?.id,
                     name = user?.name,
                     email = user?.email,
                     number = user?.number,

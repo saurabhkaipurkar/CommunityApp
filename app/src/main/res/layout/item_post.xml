@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="16dp"
+    android:layout_marginHorizontal="12dp"
     android:layout_marginVertical="8dp"
-    app:cardCornerRadius="16dp"
-    app:cardElevation="2dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="6dp"
     app:strokeColor="@color/stroke_color"
-    app:strokeWidth="1dp"
+    app:strokeWidth="0.5dp"
     app:cardBackgroundColor="@color/background_color"
     app:cardUseCompatPadding="true">
 
@@ -16,31 +16,33 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="18dp">
 
-        <!-- User Info Section -->
+        <!-- User Info -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:gravity="center_vertical"
-            android:paddingBottom="12dp">
+            android:paddingBottom="14dp">
 
-            <ImageView
+            <!-- Profile Image -->
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/imageUser"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_placeholder"
-                android:background="@drawable/circle_background"
-                android:elevation="1dp" />
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/stroke_color"
+                android:background="@drawable/circle_background" />
 
+            <!-- Username + Time -->
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="vertical"
-                android:layout_marginStart="12dp">
+                android:layout_marginStart="14dp"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textUserName"
@@ -48,172 +50,111 @@
                     android:layout_height="wrap_content"
                     android:text="Username"
                     android:textStyle="bold"
-                    android:textSize="16sp"
-                    android:letterSpacing="0.01" />
+                    android:maxLines="1"
+                    android:ellipsize="end" />
 
                 <TextView
                     android:id="@+id/post_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="2 hours ago"
-                    android:textSize="12sp"
-                    android:alpha="0.7"
-                    android:layout_marginTop="2dp" />
+                    android:alpha="0.6" />
 
             </LinearLayout>
 
-            <!-- Menu Icon -->
+            <!-- Menu Button -->
             <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_placeholder"
-                android:alpha="0.6"
-                android:background="?android:attr/selectableItemBackgroundBorderless"
-                android:padding="4dp" />
-
+                android:id="@+id/menuIcon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_more_vert"
+                android:padding="8dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:scaleType="centerInside"
+                android:contentDescription="Menu"
+                app:tint="@color/text_color" />
         </LinearLayout>
 
-        <!-- Post Image with modern aspect ratio -->
-        <androidx.cardview.widget.CardView
+        <!-- Post Image -->
+        <ImageView
+            android:id="@+id/imagePost"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="0dp"
-            android:layout_marginBottom="12dp">
+            android:layout_marginBottom="14dp"
+            android:contentDescription="post_user" />
 
-            <ImageView
-                android:id="@+id/imagePost"
-                android:layout_width="match_parent"
-                android:layout_height="280dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/ic_placeholder" />
-
-        </androidx.cardview.widget.CardView>
-
-        <!-- Description -->
+        <!-- Post Description -->
         <TextView
             android:id="@+id/textDescription"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
+            android:layout_height="48dp"
             android:text="This is a sample post description."
-            android:lineSpacingMultiplier="1.3"
+            android:textColor="@color/text_color"
+            android:autoLink="web"
+            android:singleLine="true"
+            android:linksClickable="true"
+            android:textColorLink="@color/accent_blue"
+            android:textSize="18sp"
+            android:background="?attr/selectableItemBackground"
             android:layout_marginBottom="16dp" />
 
-        <!-- Action Buttons with modern spacing -->
+        <!-- Action Buttons -->
         <LinearLayout
-            android:id="@+id/layoutActions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:paddingVertical="8dp">
+            android:orientation="horizontal">
 
-            <!-- Like Section -->
-            <LinearLayout
+            <!-- Like Button - Enhanced Size -->
+            <com.google.android.material.chip.Chip
+                android:id="@+id/likeCheckBox"
+                style="@style/Widget.Material3.Chip.Assist"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:background="?android:attr/selectableItemBackgroundBorderless"
-                android:paddingHorizontal="12dp"
-                android:paddingVertical="8dp"
-                android:layout_marginEnd="8dp">
+                android:layout_height="70dp"
+                android:text="0"
+                android:textSize="18sp"
+                android:checkable="true"
+                android:layout_marginEnd="12dp"
+                app:chipIcon="@drawable/like_button_selector"
+                app:chipIconTint="@color/text_color"
+                app:chipIconSize="28dp"
+                app:iconStartPadding="10dp"
+                app:chipStartPadding="16dp"
+                app:chipEndPadding="16dp"
+                app:chipStrokeColor="@color/stroke_color"
+                app:chipStrokeWidth="1dp" />
 
-                <FrameLayout
-                    android:layout_width="22dp"
-                    android:layout_height="22dp">
-
-                    <ImageView
-                        android:id="@+id/button_like"
-                        android:layout_width="22dp"
-                        android:layout_height="22dp"
-                        android:src="@drawable/ic_like"
-                        android:contentDescription="disLike"
-                        android:visibility="gone"
-                        app:tint="@color/text_color" />
-
-                    <ImageView
-                        android:id="@+id/button_dislike"
-                        android:layout_width="22dp"
-                        android:layout_height="22dp"
-                        android:src="@drawable/ic_unlike"
-                        app:tint="@color/text_color"
-                        android:contentDescription="Like" />
-
-                </FrameLayout>
-
-                <TextView
-                    android:id="@+id/textLikeCount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="0"
-                    android:layout_marginStart="6dp"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-            <!-- Comment Section -->
-            <LinearLayout
+            <!-- Comment Button - Enhanced Size -->
+            <com.google.android.material.chip.Chip
+                android:id="@+id/click_to_comment"
+                style="@style/Widget.Material3.Chip.Assist"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:background="?android:attr/selectableItemBackgroundBorderless"
-                android:paddingHorizontal="12dp"
-                android:paddingVertical="8dp"
-                android:layout_marginEnd="8dp">
+                android:layout_height="70dp"
+                android:text="0"
+                android:layout_marginEnd="12dp"
+                android:textSize="18sp"
+                app:chipIcon="@drawable/ic_comment"
+                app:chipIconTint="@color/text_color"
+                app:chipIconSize="28dp"
+                app:chipStartPadding="16dp"
+                app:chipEndPadding="16dp"
+                app:chipStrokeColor="@color/stroke_color"
+                app:chipStrokeWidth="1dp" />
 
-                <ImageView
-                    android:id="@+id/buttonComment"
-                    android:layout_width="22dp"
-                    android:layout_height="22dp"
-                    android:src="@drawable/ic_comment"
-                    android:contentDescription="Comment"
-                    app:tint="@color/text_color" />
-
-                <TextView
-                    android:id="@+id/textCommentCount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="0"
-                    android:layout_marginStart="6dp"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-            <!-- Share Section -->
-            <LinearLayout
+            <!-- Share Button - Enhanced Size -->
+            <com.google.android.material.chip.Chip
+                android:id="@+id/buttonShare"
+                style="@style/Widget.Material3.Chip.Assist"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:background="?android:attr/selectableItemBackgroundBorderless"
-                android:paddingHorizontal="12dp"
-                android:paddingVertical="8dp">
-
-                <ImageView
-                    android:id="@+id/buttonShare"
-                    android:layout_width="22dp"
-                    android:layout_height="22dp"
-                    android:src="@drawable/ic_send"
-                    android:contentDescription="Share"
-                    app:tint="@color/text_color" />
-
-                <TextView
-                    android:id="@+id/textShareCount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="0"
-                    android:layout_marginStart="6dp"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
+                android:layout_height="70dp"
+                android:text="Share"
+                android:textSize="16sp"
+                app:chipIcon="@drawable/ic_send"
+                app:chipIconTint="@color/text_color"
+                app:chipIconSize="28dp"
+                app:chipStartPadding="16dp"
+                app:chipEndPadding="16dp"
+                app:chipStrokeColor="@color/stroke_color"
+                app:chipStrokeWidth="1dp" />
         </LinearLayout>
-
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

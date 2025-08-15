@@ -1,9 +1,11 @@
 package com.example.communityapp.viewmodel
 
+import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.communityapp.models.CommentsResponse
 import com.example.communityapp.models.GetPostResponse
 import com.example.communityapp.models.PostComments
 import com.example.communityapp.models.PostLikes
@@ -40,6 +42,7 @@ class PostViewModel(private val repository: PostRepository) : ViewModel(){
     fun getPosts(){
         viewModelScope.launch {
             try {
+
                 val response = repository.getPost()
                 _getPostResponse.value = response
             } catch (e: Exception) {
@@ -71,6 +74,20 @@ class PostViewModel(private val repository: PostRepository) : ViewModel(){
             try {
                 val response = repository.comments(comments)
                 _postComment.value = response
+            }catch (e: Exception){
+                _error.value = e.message ?: "Unknown error"
+            }
+        }
+    }
+
+    private val _getComments = MutableLiveData<CommentsResponse>()
+    val getComments: LiveData<CommentsResponse> = _getComments
+
+    fun getComments(postId: Int){
+        viewModelScope.launch {
+            try {
+                val response = repository.getComments(postId)
+                _getComments.postValue(response)
             }catch (e: Exception){
                 _error.value = e.message ?: "Unknown error"
             }

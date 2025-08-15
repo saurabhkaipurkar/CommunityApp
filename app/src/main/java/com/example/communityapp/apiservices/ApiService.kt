@@ -1,8 +1,10 @@
 package com.example.communityapp.apiservices
 
 import com.example.communityapp.models.ApiResponse
+import com.example.communityapp.models.CommentsResponse
 import com.example.communityapp.models.DistrictResponse
 import com.example.communityapp.models.GetPostResponse
+import com.example.communityapp.models.GetUserProfile
 import com.example.communityapp.models.LoginResponse
 import com.example.communityapp.models.PostComments
 import com.example.communityapp.models.PostLikes
@@ -74,5 +76,15 @@ interface ApiService {
     suspend fun comments(
         @FieldMap postInfo: Map<String, String>
     ): PostComments
+
+    @GET("index.php/api/AccountsController/get_comments/{post_id}")
+    suspend fun getComments(
+        @Path ("post_id") postId: Int
+    ): CommentsResponse
+
+    @GET("index.php/api/AccountsController/get_profile/{user_id}")
+    suspend fun getUserProfile(
+        @Path ("user_id") userId: Int
+    ) : GetUserProfile
 
 }

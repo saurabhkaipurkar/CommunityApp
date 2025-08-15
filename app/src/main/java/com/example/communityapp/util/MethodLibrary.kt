@@ -1,20 +1,29 @@
 package com.example.communityapp.util
 
 import android.content.Context
+import android.content.Intent
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.net.Uri
 import android.util.Base64
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.ProgressBar
 import android.widget.Spinner
+import androidx.browser.customtabs.CustomTabsIntent
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
 import com.example.communityapp.models.DistrictData
 import com.example.communityapp.models.StateData
 import com.example.communityapp.models.TalukaData
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import androidx.core.net.toUri
 
 fun convertImageToBase64(context: Context, imageUri: Uri): String {
     return try {
@@ -28,67 +37,32 @@ fun convertImageToBase64(context: Context, imageUri: Uri): String {
     }
 }
 
-fun setupTalukaSpinner(
-    context: Context,
-    spinner: Spinner,
-    talukas: List<TalukaData>,
-    onTalukaSelected: (id: String, name: String) -> Unit
-) {
-    val talukaName = talukas.map { it.taluka_name }
-    val talukaIds = talukas.map { it.id }
-
-    val adapter = ArrayAdapter(
-        context,
-        android.R.layout.simple_spinner_dropdown_item,
-        talukaName
-    )
-    spinner.adapter = adapter
-
-    spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-        override fun onItemSelected(
-            parent: AdapterView<*>?,
-            view: View?,
-            position: Int,
-            id: Long
-        ) {
-            val selectedId = talukaIds[position].toString()
-            val selectedName = talukaName[position]
-            onTalukaSelected(selectedId, selectedName)
-        }
-
-        override fun onNothingSelected(parent: AdapterView<*>?) {}
-    }
-}
-
 fun setupStateSpinner(
     context: Context,
     spinner: Spinner,
     states: List<StateData>,
-    onStateSelected: (stateId: String) -> Unit
+    onStateSelected: (String) -> Unit
 ) {
-    val stateNames = states.map { it.state_name }
-    val stateIds = states.map { it.id }
+    val stateNames = mutableListOf<String>()
+    stateNames.add("Select State") // Add hint at 0th position
+    stateNames.addAll(states.map { it.state_name })
 
-    val adapter = ArrayAdapter(
-        context,
-        android.R.layout.simple_spinner_dropdown_item,
-        stateNames
-    )
+    val adapter = ArrayAdapter(context, android.R.layout.simple_spinner_dropdown_item, stateNames)
     spinner.adapter = adapter
 
     spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-        override fun onItemSelected(
-            parent: AdapterView<*>?,
-            view: View?,
-            position: Int,
-            id: Long
-        ) {
-            val selectedStateId = stateIds[position]
-            spinner.tag = selectedStateId
-            onStateSelected(selectedStateId)
+        override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+            if (position > 0) { // Skip the hint item at position 0
+                val selectedState = states[position - 1] // Adjust index for actual data
+                onStateSelected(selectedState.id)
+            } else {
+                // Position 0 is selected (hint text), clear the tag
+                spinner.tag = null
+            }
         }
-
-        override fun onNothingSelected(parent: AdapterView<*>?) {}
+        override fun onNothingSelected(parent: AdapterView<*>?) {
+            spinner.tag = null
+        }
     }
 }
 
@@ -97,31 +71,57 @@ fun setupDistrictSpinner(
     spinner: Spinner,
     districts: List<DistrictData>,
     stateId: String,
-    onDistrictSelected: (stateId: String, districtId: String) -> Unit
+    onDistrictSelected: (Int, Int) -> Unit
 ) {
-    val districtNames = districts.map { it.district_name }
-    val districtIds = districts.map { it.id }
+    val districtNames = mutableListOf<String>()
+    districtNames.add("Select District") // Add hint at 0th position
+    districtNames.addAll(districts.map { it.district_name })
 
-    val adapter = ArrayAdapter(
-        context,
-        android.R.layout.simple_spinner_dropdown_item,
-        districtNames
-    )
+    val adapter = ArrayAdapter(context, android.R.layout.simple_spinner_dropdown_item, districtNames)
     spinner.adapter = adapter
 
     spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-        override fun onItemSelected(
-            parent: AdapterView<*>?,
-            view: View?,
-            position: Int,
-            id: Long
-        ) {
-            val selectedDistrictId = districtIds[position].toString()
-            spinner.tag = selectedDistrictId
-            onDistrictSelected(stateId, selectedDistrictId)
+        override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+            if (position > 0) { // Skip the hint item at position 0
+                val selectedDistrict = districts[position - 1] // Adjust index for actual data
+                onDistrictSelected(stateId.toInt(), selectedDistrict.id)
+            } else {
+                // Position 0 is selected (hint text), clear the tag
+                spinner.tag = null
+            }
         }
+        override fun onNothingSelected(parent: AdapterView<*>?) {
+            spinner.tag = null
+        }
+    }
+}
 
-        override fun onNothingSelected(parent: AdapterView<*>?) {}
+fun setupTalukaSpinner(
+    context: Context,
+    spinner: Spinner,
+    talukas: List<TalukaData>,
+    onTalukaSelected: (Int, String) -> Unit
+) {
+    val talukaNames = mutableListOf<String>()
+    talukaNames.add("Select Taluka") // Add hint at 0th position
+    talukaNames.addAll(talukas.map { it.taluka_name })
+
+    val adapter = ArrayAdapter(context, android.R.layout.simple_spinner_dropdown_item, talukaNames)
+    spinner.adapter = adapter
+
+    spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+            if (position > 0) { // Skip the hint item at position 0
+                val selectedTaluka = talukas[position - 1] // Adjust index for actual data
+                onTalukaSelected(selectedTaluka.id, selectedTaluka.taluka_name)
+            } else {
+                // Position 0 is selected (hint text), clear the tag
+                spinner.tag = null
+            }
+        }
+        override fun onNothingSelected(parent: AdapterView<*>?) {
+            spinner.tag = null
+        }
     }
 }
 
@@ -166,4 +166,38 @@ fun replaceFragment(
         .replace(containerId, fragment)
         .addToBackStack(null)
         .commit()
+}
+
+fun isInternetAvailable(context: Context): Boolean {
+    val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+    val network = cm.activeNetwork ?: return false
+    val activeNetwork = cm.getNetworkCapabilities(network) ?: return false
+    return activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) ||
+            activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)
+}
+
+fun startLoadingBar(context: Context){
+    ProgressBar(context).apply {
+        visibility = View.VISIBLE
+    }
+}
+fun stopLoadingBar(context: Context){
+    ProgressBar(context).apply {
+        visibility = View.GONE
+    }
+}
+
+fun openCustomTab(context: Context, url: String) {
+    val customTabsIntent = CustomTabsIntent.Builder()
+        .setShowTitle(true) // Show website title in toolbar
+        .build()
+    // This skips Android’s default intent resolution (so no YouTube app)
+    customTabsIntent.intent.setPackage("com.android.chrome")
+
+    try {
+        customTabsIntent.launchUrl(context, url.toUri())
+    } catch (e: Exception) {
+        // If Chrome not installed, open in default browser
+        context.startActivity(Intent(Intent.ACTION_VIEW, url.toUri()))
+    }
 }

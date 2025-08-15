@@ -17,7 +17,8 @@ data class Post(
     val content: String?,
     val created_at: String,
     var isLiked: Boolean = false, // default unliked
-    var likeCount: Int = 0
+    var like_count: String,
+    var comment_count: String,
 )
 
 data class PostLikes(
@@ -29,3 +30,18 @@ data class PostComments(
     val status: Boolean,
     val message: String
 )
+
+data class CommentsResponse(
+    val status: Boolean,
+    val message: String,
+    val data: List<CommentData>
+)
+
+data class CommentData(
+    val id: String,
+    val user_id: String,
+    val new_post_id: String,
+    val comments: String,
+    val created_at: String
+)
+

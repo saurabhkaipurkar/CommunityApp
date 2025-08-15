@@ -47,6 +47,11 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        ViewCompat.setOnApplyWindowInsetsListener(binding.bottomNav) { v, insets ->
+            insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(0,0,0,0)
+            insets
+        }
 
         requestPermission()
         replaceFragment(supportFragmentManager,R.id.mainFragmentContainer,HomeFragment())

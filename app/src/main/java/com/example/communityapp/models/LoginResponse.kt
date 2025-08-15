@@ -11,6 +11,12 @@ data class LoginData(
     val email : String,
     val number : String,
     val password : String,
+    val gender : String,
+    val state_id : String,
+    val district_id : String,
+    val taluka_id : String,
+    val address : String,
     val role : String,
-    val created_at : String
+    val created_at : String,
+    val liked_posts: List<String>
 )

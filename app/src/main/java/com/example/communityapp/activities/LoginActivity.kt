@@ -22,6 +22,7 @@ import com.google.android.libraries.identity.googleid.GetGoogleIdOption
 import com.google.android.libraries.identity.googleid.GoogleIdTokenCredential
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.gson.Gson
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -92,7 +93,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun phoneNumberValidation(number: String): Boolean {
-        val phoneNumberRegex =  "^\\d{10}\$"
+        val phoneNumberRegex = "^\\d{10}$"
         return number.matches(phoneNumberRegex.toRegex())
     }
 
@@ -108,8 +109,17 @@ class LoginActivity : AppCompatActivity() {
                     name = user?.name,
                     email = user?.email,
                     number = user?.number,
+                    gender = user?.gender,
+                    state_id = user?.state_id,
+                    district_id = user?.district_id,
+                    taluka_id = user?.taluka_id,
+                    address = user?.address,
                     role = user?.role,
                     created_at = user?.created_at
+                )
+                ClientInfo.user_liked_post(
+                    this,
+                    Gson().toJson(user?.liked_posts)
                 )
                 startActivity(Intent(this, MainActivity::class.java))
                 finish()

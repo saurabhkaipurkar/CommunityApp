@@ -1,0 +1,67 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:background="@drawable/bg_bottom_sheet">
+
+    <!-- Drag handle -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:background="@drawable/bg_drag_handle"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Comments"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textColor="@color/text_color"
+        android:padding="8dp" />
+
+    <!-- Comments list -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewComments"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- Comment input -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="12dp">
+
+        <EditText
+            android:id="@+id/editTextMessage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColorHint="@color/text_color"
+            android:textColor="@color/text_color"
+            android:autofillHints="name"
+            android:hint="Add a comment"
+            android:background="@drawable/edittext_background"
+            android:inputType="textAutoComplete|textCapSentences|textMultiLine"
+            android:padding="16dp" />
+
+        <ImageView
+            android:id="@+id/buttonSend"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="12dp"
+            android:src="@drawable/ic_send"
+            android:contentDescription="Send"
+            app:tint="@color/text_color" />
+    </LinearLayout>
+
+</LinearLayout>

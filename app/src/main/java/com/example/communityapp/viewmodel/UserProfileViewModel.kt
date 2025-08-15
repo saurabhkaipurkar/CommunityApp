@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.communityapp.apiservices.apirequest.UpdateDataRequest
 import com.example.communityapp.models.DistrictResponse
+import com.example.communityapp.models.GetUserProfile
 import com.example.communityapp.models.StateResponse
 import com.example.communityapp.models.TalukaResponse
 import com.example.communityapp.models.UserProfileResponse
@@ -26,6 +27,22 @@ class UserProfileViewModel(private val repository: UserProfileRepository) : View
                 val response = repository.giveProfileData(jsonString)
                 _updateResponse.value = response
             } catch (e: Exception) {
+                _error.value = e.message
+            }
+        }
+    }
+
+    //================= Get User Profile =============================================
+
+    private val _userProfile = MutableLiveData<GetUserProfile>()
+    val userProfile: MutableLiveData<GetUserProfile> = _userProfile
+
+    fun getUserProfile(userId: Int){
+        viewModelScope.launch {
+            try {
+                val response = repository.getUserProfile(userId)
+                _userProfile.value = response
+            }catch (e: Exception){
                 _error.value = e.message
             }
         }
