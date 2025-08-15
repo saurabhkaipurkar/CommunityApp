@@ -72,7 +72,7 @@ class HomeFragment : Fragment(), ClickListener {
                     if (!likedPostsJson.isNullOrEmpty()) {
                         Gson().fromJson(likedPostsJson, object : TypeToken<List<String>>() {}.type)
                     } else emptyList()
-                } catch (e: Exception) {
+                } catch (_: Exception) {
                     emptyList()
                 }
 
@@ -82,7 +82,7 @@ class HomeFragment : Fragment(), ClickListener {
                     .sortedByDescending {
                         try {
                             dateFormat.parse(it.created_at)?.time
-                        } catch (e: Exception) {
+                        } catch (_: Exception) {
                             null
                         }
                     }

@@ -1,6 +1,5 @@
 package com.example.communityapp.util
 
-import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.net.ConnectivityManager
@@ -12,13 +11,9 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ProgressBar
 import android.widget.Spinner
-import android.widget.Toast
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.Observer
 import com.example.communityapp.models.DistrictData
 import com.example.communityapp.models.StateData
 import com.example.communityapp.models.TalukaData
@@ -154,7 +149,7 @@ fun getRelativeTime(timestamp: String): String {
             seconds > 30 -> "${seconds}s ago"
             else -> "Just now"
         }
-    } catch (e: Exception) {
+    } catch (_: Exception) {
         "Unknown time"
     }
 }
@@ -200,7 +195,7 @@ fun openCustomTab(context: Context, url: String) {
 
     try {
         customTabsIntent.launchUrl(context, url.toUri())
-    } catch (e: Exception) {
+    } catch (_: Exception) {
         // If Chrome not installed, open in default browser
         context.startActivity(Intent(Intent.ACTION_VIEW, url.toUri()))
     }
