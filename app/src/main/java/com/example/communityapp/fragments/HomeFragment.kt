@@ -67,7 +67,7 @@ class HomeFragment : Fragment(), ClickListener {
         postViewModel.getPostResponse.observe(viewLifecycleOwner) { response ->
             if (response.status && !response.data.isNullOrEmpty()) {
                 // Get liked post IDs from saved user info
-                val likedPostsJson = ClientInfo.get_liked_post(requireContext())
+                val likedPostsJson = ClientInfo.getLikedPost(requireContext())
                 val likedPostIds: List<String> = try {
                     if (!likedPostsJson.isNullOrEmpty()) {
                         Gson().fromJson(likedPostsJson, object : TypeToken<List<String>>() {}.type)
@@ -123,7 +123,7 @@ class HomeFragment : Fragment(), ClickListener {
         postList.isLiked = !postList.isLiked
 
         // Retrieve existing liked post IDs
-        val likedPostsJson = ClientInfo.get_liked_post(requireContext())
+        val likedPostsJson = ClientInfo.getLikedPost(requireContext())
         val likedPostIds: MutableList<String> = if (!likedPostsJson.isNullOrEmpty()) {
             Gson().fromJson(likedPostsJson, object : TypeToken<MutableList<String>>() {}.type)
         } else {
@@ -138,7 +138,7 @@ class HomeFragment : Fragment(), ClickListener {
         }
 
         // Save updated list
-        ClientInfo.user_liked_post(requireContext(), Gson().toJson(likedPostIds))
+        ClientInfo.userLikedPost(requireContext(), Gson().toJson(likedPostIds))
 
         // Call API
         val likeMap = mapOf(

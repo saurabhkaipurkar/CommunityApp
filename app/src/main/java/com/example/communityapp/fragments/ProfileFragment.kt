@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.communityapp.ClientInfo
 import com.example.communityapp.R
@@ -16,7 +15,7 @@ import com.example.communityapp.activities.FullScreenImageActivity
 import com.example.communityapp.adapter.UserPostsAdapter
 import com.example.communityapp.apiservices.RetrofitHelper
 import com.example.communityapp.databinding.FragmentProfileBinding
-import com.example.communityapp.listener.ImageClicklistener
+import com.example.communityapp.listener.ImageClickListener
 import com.example.communityapp.models.Post
 import com.example.communityapp.repository.PostRepository
 import com.example.communityapp.repository.UserProfileRepository
@@ -25,7 +24,7 @@ import com.example.communityapp.viewmodel.UserProfileViewModel
 import com.example.communityapp.viewmodelfactory.PostViewmodelFactory
 import com.example.communityapp.viewmodelfactory.UserProfileFactory
 
-class ProfileFragment : Fragment(), ImageClicklistener {
+class ProfileFragment : Fragment(), ImageClickListener {
 
     private lateinit var binding: FragmentProfileBinding
     private lateinit var userProfileViewModel: UserProfileViewModel

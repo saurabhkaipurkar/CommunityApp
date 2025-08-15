@@ -5,7 +5,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.communityapp.R
 import com.example.communityapp.databinding.ActivityOtpVerificationBinding
 
 class OtpVerificationActivity : AppCompatActivity() {

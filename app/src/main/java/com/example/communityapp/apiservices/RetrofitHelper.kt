@@ -8,7 +8,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-object RetrofitHelper{
+object RetrofitHelper {
     private const val BASE_URL = "https://permatmaek.trucksvilla.in/"
 
     private fun getClient(): OkHttpClient {
@@ -23,17 +23,16 @@ object RetrofitHelper{
             .build()
     }
 
-    private fun getRetrofitInstance(baseUrl: String): Retrofit {
+    private fun getRetrofitInstance(): Retrofit {
         val gson: Gson = GsonBuilder()
-            .setLenient()
             .create()
 
         return Retrofit.Builder()
-            .baseUrl(baseUrl)
+            .baseUrl(BASE_URL)  // Using the constant directly
             .client(getClient())
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
     }
 
-    fun getApiService(): ApiService = getRetrofitInstance(BASE_URL).create(ApiService::class.java)
+    fun getApiService(): ApiService = getRetrofitInstance().create(ApiService::class.java)
 }

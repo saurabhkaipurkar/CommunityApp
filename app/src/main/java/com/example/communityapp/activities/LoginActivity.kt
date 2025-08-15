@@ -117,7 +117,7 @@ class LoginActivity : AppCompatActivity() {
                     role = user?.role,
                     created_at = user?.created_at
                 )
-                ClientInfo.user_liked_post(
+                ClientInfo.userLikedPost(
                     this,
                     Gson().toJson(user?.liked_posts)
                 )

@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.communityapp.apiservices.apirequest.UpdateDataRequest
 import com.example.communityapp.models.DistrictResponse
 import com.example.communityapp.models.GetUserProfile
 import com.example.communityapp.models.StateResponse

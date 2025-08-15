@@ -7,11 +7,11 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.communityapp.R
-import com.example.communityapp.listener.ImageClicklistener
+import com.example.communityapp.listener.ImageClickListener
 import com.example.communityapp.models.Post
 
 class UserPostsAdapter(private var userPosts: List<Post>,
-    private val clickListener: ImageClicklistener
+    private val clickListener: ImageClickListener
 ) : RecyclerView.Adapter<UserPostsAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

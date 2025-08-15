@@ -55,14 +55,14 @@ object ClientInfo {
         }
     }
 
-    fun user_liked_post(context: Context, post_id: String?){
+    fun userLikedPost(context: Context, post_id: String?){
         getPrefs(context).edit().apply {
             putString(KEY_POST_ID, post_id)
             apply()
         }
     }
 
-    fun get_liked_post(context: Context): String? {
+    fun getLikedPost(context: Context): String? {
         return getPrefs(context).getString(KEY_POST_ID, null)
     }
 
