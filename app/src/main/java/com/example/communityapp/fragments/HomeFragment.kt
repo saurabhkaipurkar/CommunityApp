@@ -203,7 +203,7 @@ class HomeFragment : Fragment(), ClickListener {
     override fun inAppBrowser(postList: Post, position: Int) {
         val url = postList.content?.trim() ?: return
 
-        if(url.startsWith("http://") && url.startsWith("https://")){
+        if (url.startsWith("http://") || url.startsWith("https://")) {
             openCustomTab(requireContext(), url)
         }
     }

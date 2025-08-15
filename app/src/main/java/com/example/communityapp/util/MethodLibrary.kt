@@ -1,5 +1,6 @@
 package com.example.communityapp.util
 
+import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.net.ConnectivityManager
@@ -11,6 +12,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ProgressBar
 import android.widget.Spinner
+import android.widget.Toast
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -190,6 +192,8 @@ fun stopLoadingBar(context: Context){
 fun openCustomTab(context: Context, url: String) {
     val customTabsIntent = CustomTabsIntent.Builder()
         .setShowTitle(true) // Show website title in toolbar
+        .setStartAnimations(context, android.R.anim.slide_in_left, android.R.anim.slide_out_right)
+        .setExitAnimations(context, android.R.anim.slide_in_left, android.R.anim.slide_out_right)
         .build()
     // This skips Android’s default intent resolution (so no YouTube app)
     customTabsIntent.intent.setPackage("com.android.chrome")

@@ -91,7 +91,6 @@
             android:text="This is a sample post description."
             android:textColor="@color/text_color"
             android:autoLink="web"
-            android:singleLine="true"
             android:linksClickable="true"
             android:textColorLink="@color/accent_blue"
             android:textSize="18sp"
