@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.communityapp.ClientInfo
 import com.example.communityapp.R
 import com.example.communityapp.activities.FullScreenImageActivity
@@ -68,7 +68,7 @@ class ProfileFragment : Fragment(), ImageClickListener {
     }
 
     private fun setupRecyclerView() {
-        binding.recyclerUserPosts.layoutManager = StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL)
+        binding.recyclerUserPosts.layoutManager = GridLayoutManager(requireContext(), 3)
         userPostsAdapter = UserPostsAdapter(emptyList(),this)
         binding.recyclerUserPosts.adapter = userPostsAdapter
     }

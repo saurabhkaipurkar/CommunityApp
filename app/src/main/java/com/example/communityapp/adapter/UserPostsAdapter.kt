@@ -24,13 +24,12 @@ class UserPostsAdapter(private var userPosts: List<Post>,
         val post = userPosts[position]
 
         val imageFile = post.media_file
-        if (!imageFile.isNullOrEmpty()) {
+        if (imageFile.isNullOrEmpty()) {
+            holder.userPost.visibility = View.GONE
+        }else{
             Glide.with(holder.itemView.context)
                 .load(imageFile)
                 .into(holder.userPost)
-        }else{
-            holder.itemView.visibility = View.GONE
-            holder.itemView.layoutParams = RecyclerView.LayoutParams(0, 0)
         }
 
         holder.userPost.setOnClickListener {
